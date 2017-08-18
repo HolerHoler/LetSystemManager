@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE hibernate-configuration PUBLIC  
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 第一部分： 配置数据库信息 必须的 -->
+		<!-- <property name="connection.driver_class">com.mysql.jdbc.Driver</property> -->
+		<!-- <property name="connection.url">jdbc:MYSQL://localhost:3306/myuse?useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=false</property> -->
+		<!-- <property name="connection.username">root</property> -->
+		<!-- <property name="connection.password">123456</property> -->
+
+		<!-- 第二部分： 配置hibernate信息 可选的 -->
+		<!-- 数据库连接池的大小 -->
+		<property name="connection.pool_size">5</property>
+		<!-- 每次从数据库中取出并放到JDBC的Statement中的记录条数。Fetch Size设的越大，读数据库的次数越少，速度越快，Fetch 
+			Size越小，读数据库的次数越多，速度越慢 -->
+		<property name="jdbc.fetch_size">50</property>
+		<!--批量插入,删除和更新时每次操作的记录数。Batch Size越大，批量操作的向数据库发送Sql的次数越少，速度就越快，同样耗用内存就越大 -->
+		<property name="jdbc.batch_size">20</property>
+		<!-- 输出底层sql语句 -->
+		<property name="hibernate.show_sql">true</property>
+		<!-- 输出底层sql语句格式 -->
+		<property name="hibernate.format_sql">true</property>
+		<!-- Enable Hibernate's automatic session context management -->
+		<!-- <property name="current_session_context_class">thread</property> -->
+		<!-- SQL 方言 -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- 在启动时根据配置更新数据库 -->
+		<property name="hbm2ddl.auto">update</property>
+		<!-- 第三部分： 把映射文件放到核心配置文件中 必须的 -->
+		<!-- 注册我们的实体映射类 -->
+		<mapping resource="com/let/po/User.hbm.xml" />
+		<mapping resource="com/let/po/HouseInfo.hbm.xml" />
+		<mapping resource="com/let/po/Broker.hbm.xml" />
+		<mapping resource="com/let/po/Renter.hbm.xml" />
+		<mapping resource="com/let/po/LetInfo.hbm.xml" />
+		<mapping resource="com/let/po/BrokerHouse.hbm.xml" />
+
+	</session-factory>
+</hibernate-configuration> 

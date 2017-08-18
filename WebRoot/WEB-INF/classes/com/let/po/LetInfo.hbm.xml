@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE hibernate-mapping PUBLIC   
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.let.po.LetInfo" table="LetInfo">
+		<id name="id" column="id" type="integer">
+			<generator class="native"></generator>
+		</id>
+
+		<property name="letName" column="letName" type="string"
+			not-null="true" length="15" />
+
+		<many-to-one name="houseInfo" column="house_id_let"
+			class="com.let.po.HouseInfo" lazy="false">
+		</many-to-one>
+
+		<many-to-one name="renter" column="renter_id" class="com.let.po.Renter"
+			lazy="false">
+		</many-to-one>
+
+		<many-to-one name="broker" column="broker_id_let" class="com.let.po.Broker"
+			lazy="false"></many-to-one>
+
+		<property name="beginTime" column="beginTime" type="date"
+			not-null="true" />
+
+		<property name="dayNum" column="dayNum" type="int" not-null="true" />
+
+		<property name="endTime" column="endTime" type="date"
+			not-null="true" />
+
+	</class>
+</hibernate-mapping>  

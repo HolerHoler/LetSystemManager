@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE hibernate-mapping PUBLIC   
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.let.po.Renter" table="Renter">
+		<id name="id" column="id" type="integer">
+			<generator class="native"></generator>
+		</id>
+
+		<property name="credentials_type" column="credentials_type"
+			type="string" not-null="true" length="10" />
+
+		<property name="credentials_id" column="credentials_id" type="string"
+			not-null="true" length="20" />
+
+		<property name="personName" column="personName" type="string"
+			not-null="true" length="10" />
+
+		<property name="telephone" column="telephone" type="string"
+			not-null="true" length="15" />
+
+		<set name="letInfos" cascade="delete" inverse="true"
+			fetch="join" lazy="false">
+			<key column="renter_id"></key>
+			<one-to-many class="com.let.po.LetInfo" />
+		</set>
+	</class>
+</hibernate-mapping>  

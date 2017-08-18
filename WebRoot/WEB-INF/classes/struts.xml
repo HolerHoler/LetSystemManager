@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<include file="struts-default.xml"></include>
+	<!-- 指定默认编码集 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<!-- 指定需要Struts2处理的请求后缀 -->
+	<constant name="struts.action.extension" value="do,action"></constant>
+	<!-- 设置浏览器是否缓存静态内容，开发阶段应关闭，生产阶段打开，默认为打开 -->
+	<constant name="struts.serve.static.browserCache" value="true"></constant>
+	<!-- 当struts的配置文件修改后，系统是否自动重新加载该文件，默认为false，开发阶段应打开 -->
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<!-- 开发模式下使用，可以打印出更详细的错误信息 -->
+	<constant name="struts.devMode" value="true"></constant>
+	<!-- 允许访问static下的文件 -->
+	<constant name="struts.serve.static" value="false"></constant>
+	<!-- 修改struts主题 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- action全部用注解进行配置 -->
+	<!-- 国际化信息替代默认文本 <constant name="struts.custom.i18n.resources" value="action.message_zh_CN"></constant> -->
+
+	<!--添加包 -->
+	<package namespace="/action" name="LetSystemManager" extends="struts-default,json-default">
+
+
+		<interceptors>
+			<interceptor name="loginInterceptor" class="com.let.interceptor.LoginInterceptor"></interceptor>
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="loginInterceptor"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<global-results>
+			<result name="login" type="redirect">/login.jsp</result>
+		</global-results>
+
+
+		<action name="*Broker" class="BrokerAction" method="{1}_Broker">
+			<result name="jumpAdd">/WEB-INF/view/broker/add_broker.jsp</result>
+			<result name="list">/WEB-INF/view/broker/list_broker.jsp
+			</result>
+			<result name="add">/WEB-INF/view/include/_blank.html</result>
+			<result name="update">/WEB-INF/view/broker/update_broker.jsp</result>
+			<result name="updateFinish">/WEB-INF/view/include/_blank.html</result>
+			<result name="delete" type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="export" type="stream">
+				<param name="contentType">application/x-xls</param>
+				<param name="inputName">BrokerInputStream</param>
+				<param name="contentDisposition">attachment;filename=${fileName}.xls</param>
+				<param name="bufferSize">10485760</param>
+			</result>
+			<!-- 在Action中使用自定义过滤器 -->
+			<interceptor-ref name="loginStack"></interceptor-ref>
+			<allowed-methods>
+				add_Broker,update_Broker,updated_Broker,delete_Broker,list_Broker,jumpAdd_Broker,export_Broker
+			</allowed-methods>
+		</action>
+
+		<action name="*Renter" class="RenterAction" method="{1}_Renter">
+			<result name="jumpAdd">/WEB-INF/view/renter/add_renter.jsp</result>
+			<result name="list">/WEB-INF/view/renter/list_renter.jsp</result>
+			<result name="add">/WEB-INF/view/include/_blank.html</result>
+			<result name="update">/WEB-INF/view/renter/update_renter.jsp</result>
+			<result name="updateFinish">/WEB-INF/view/include/_blank.html</result>
+			<result name="delete" type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="export" type="stream">
+				<param name="contentType">application/x-xls</param>
+				<param name="inputName">RenterInputStream</param>
+				<param name="contentDisposition">attachment;filename=${fileName}.xls</param>
+				<param name="bufferSize">10485760</param>
+			</result>
+			<!-- 在Action中使用自定义过滤器 -->
+			<interceptor-ref name="loginStack"></interceptor-ref>
+			<allowed-methods>
+				add_Renter,update_Renter,updated_Renter,delete_Renter,list_Renter,jumpAdd_Renter,export_Renter
+			</allowed-methods>
+		</action>
+
+		<action name="*BrokerHouse" class="BrokerHouseAction" method="{1}_BrokerHouse">
+			<result name="jumpAdd">/WEB-INF/view/brokerHouse/add_brokerHouse.jsp
+			</result>
+			<result name="list">/WEB-INF/view/brokerHouse/list_brokerHouse.jsp
+			</result>
+			<result name="add">/WEB-INF/view/include/_blank.html</result>
+			<result name="update">
+				/WEB-INF/view/brokerHouse/update_brokerHouse.jsp
+			</result>
+			<result name="updateFinish">/WEB-INF/view/include/_blank.html</result>
+			<result name="delete" type="json">
+				<param name="root">result</param>
+			</result>
+			<result type="json" name="ajaxBrokerHouse">
+				<param name="root">result</param>
+			</result>
+			<result name="export" type="stream">
+				<param name="contentType">application/x-xls</param>
+				<param name="inputName">BrokerHouseInputStream</param>
+				<param name="contentDisposition">attachment;filename=${fileName}.xls</param>
+				<param name="bufferSize">10485760</param>
+			</result>
+
+			<!-- 在Action中使用自定义过滤器 -->
+			<interceptor-ref name="loginStack"></interceptor-ref>
+			<allowed-methods>
+				add_BrokerHouse,update_BrokerHouse,updated_BrokerHouse,delete_BrokerHouse,list_BrokerHouse,ajax_BrokerHouse,jumpAdd_BrokerHouse,export_BrokerHouse
+			</allowed-methods>
+		</action>
+
+		<action name="*House" class="HouseAction" method="{1}_House">
+			<result name="jumpAdd">/WEB-INF/view/house/add_house.jsp</result>
+			<result name="list">/WEB-INF/view/house/list_house.jsp</result>
+			<result name="add">/WEB-INF/view/include/_blank.html</result>
+			<result name="update">/WEB-INF/view/house/update_house.jsp</result>
+			<result name="updateFinish">../welcome.jsp</result>
+			<result name="delete" type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="export" type="stream">
+				<param name="contentType">application/x-xls</param>
+				<param name="inputName">HouseInputStream</param>
+				<param name="contentDisposition">attachment;filename=${fileName}.xls</param>
+				<param name="bufferSize">10485760</param>
+			</result>
+
+			<!-- 在Action中使用自定义过滤器 -->
+			<interceptor-ref name="loginStack"></interceptor-ref>
+			<allowed-methods>
+				add_House,update_House,updated_House,delete_House,list_House,jumpAdd_House,export_House
+			</allowed-methods>
+		</action>
+
+		<action name="*Let" class="LetAction" method="{1}_Let">
+			<result name="jumpAdd">/WEB-INF/view/let/add_let.jsp</result>
+			<result name="list">/WEB-INF/view/let/list_let.jsp</result>
+			<result name="add">/WEB-INF/view/include/_blank.html</result>
+			<result name="update">/WEB-INF/view/let/update_let.jsp</result>
+			<result name="updateFinish" type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="delete" type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="bh_list">../welcome.jsp</result>
+			<result name="ajaxHouse" type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="ajaxRenter" type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="ajaxBroker" type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="export" type="stream">
+				<param name="contentType">application/x-xls</param>
+				<param name="inputName">LetInputStream</param>
+				<param name="contentDisposition">attachment;filename=${fileName}.xls</param>
+				<param name="bufferSize">10485760</param>
+			</result>
+			<!-- 在Action中使用自定义过滤器 -->
+			<interceptor-ref name="loginStack"></interceptor-ref>
+			<allowed-methods>
+				add_Let,update_Let,updated_Let,delete_Let,list_Let,bh_Let,ajaxHouse_Let,ajaxRenter_Let,ajaxBroker_Let,jumpAdd_Let,export_Let
+			</allowed-methods>
+		</action>
+
+		<action name="*Login" class="LoginAction" method="{1}Login">
+			<result name="loginSuccess" type="dispatcher">/WEB-INF/view/admin.jsp
+			</result>
+			<result name="ajaxLoginSuccess" type="redirect">/WEB-INF/admin.jsp
+			</result>
+			<result name="input">/login.jsp</result>
+			<result name="exit" type="redirect">/login.jsp
+			</result>
+			<result name="exitFail">/WEB-INF/view/admin.jsp</result>
+			<result type="json" name="success">
+				<param name="root">result</param>
+			</result>
+			<result name="export" type="stream">
+				<param name="contentType">application/x-xls</param>
+				<param name="inputName">LoginInputStream</param>
+				<param name="contentDisposition">attachment;filename=${fileName}.xls</param>
+				<param name="bufferSize">10485760</param>
+			</result>
+			<allowed-methods>tryLogin,exitLogin,ajaxLogin,exportLogin</allowed-methods>
+		</action>
+
+
+
+
+
+	</package>
+</struts>
