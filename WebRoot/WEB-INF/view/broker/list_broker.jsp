@@ -38,6 +38,7 @@
 						<th width="25px"><input type="checkbox" name="" value="">
 						</th>
 						<th width="25px">序号</th>
+						<th width="25px">经纪人id</th>
 						<th width="50px">证件类型</th>
 						<th width="200px">证件号码</th>
 						<th width="100px">经纪人姓名</th>
@@ -51,6 +52,7 @@
 						<tr class="text-c">
 							<td><input type="checkbox" value="" name=""></td>
 							<td><s:property value="#stu.count" /></td>
+							<td><s:property value="#broker.id" /></td>
 							<td><s:property value="#broker.credentials_type" /></td>
 							<td><s:property value="#broker.credentials_id" /></td>
 							<td><s:property value="#broker.personName" /></td>
