@@ -14,4 +14,6 @@ public interface RenterDao {
 	public List findRenterByAll();
 
 	public Renter findRenterByID(Integer RenterID);
+
+	public void batchDel(String delIdArray);
 }

@@ -38,8 +38,8 @@
 						<th scope="col" colspan="12">租约列表</th>
 					</tr>
 					<tr class="text-c">
-						<th width="25px"><input type="checkbox" name="" value="">
-						</th>
+						<th width="25px"><input type="checkbox" name="delid"
+							value="${let.id} "></th>
 						<th width="50px">序号</th>
 						<th width="50px">租约id</th>
 						<th width="200px">租约名字</th>
@@ -56,7 +56,7 @@
 				<tbody>
 					<s:iterator value="letList" var="let" status="stu">
 						<tr class="text-c">
-							<td><input type="checkbox" value="" name=""></td>
+							<td><input type="checkbox" value="${let.id}" name="delid"></td>
 							<td width="60"><s:property value="#stu.count" /></td>
 							<td><s:a href="updateLet.action?LetID=%{#let.id}">
 									<s:property value="#let.id" />
@@ -139,6 +139,45 @@
 			});
 
 		});
+	}
+
+	function datadel() {
+		var flag = false;
+		var delIdArray = new Array();
+		var de = document.getElementsByName("delid");
+		var j = 0;
+		for (var i = 0; i < de.length; i++) {
+			if (de[i].checked) {
+				delIdArray[j] = de[i].value;
+				j++;
+				flag = true;
+			}
+		}
+		if (flag == false) {
+			alert("至少你要选择一个待删除记录");
+			return false;
+		}
+
+		layer.confirm('您是否删除本记录？', {
+			btn : [ '是', '取消' ]
+		//按钮
+		}, function() {
+			$.post("action/batchDelLet.action?delIdArray=" + delIdArray,
+					function(result) {
+						alert("Data Loaded: " + result.message);
+						location.replace(location.href);
+					});
+			layer.msg('已删除!', {
+				icon : 1,
+				time : 1000
+			});
+		}, function() {
+			layer.msg('已取消!', {
+				icon : 1,
+				time : 1000
+			});
+		});
+
 	}
 </script>
 </html>

@@ -19,4 +19,6 @@ public interface BrokerHouseDao {
 	public List<BrokerHouse> findBrokerHouseByHouseID(Integer HouseID);
 
 	public List<BrokerHouse> findBrokerHouseByBrokerID(Integer BrokerID);
+	
+	public void batchDel(String delIdArray);
 }

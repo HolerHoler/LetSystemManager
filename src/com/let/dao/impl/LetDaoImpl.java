@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -51,6 +53,25 @@ public class LetDaoImpl extends HibernateDaoSupport implements LetDao {
 		// TODO 自动生成的方法存根
 		LetInfo letInfo = getHibernateTemplate().get(LetInfo.class, LetID);
 		return letInfo;
+	}
+
+	@Override
+	public void batchDel(String delIdArray) {
+		// TODO 自动生成的方法存根
+		String hql = null;
+		String[] delIds = delIdArray.split(",");
+		for (int i = 0; i < delIds.length; i++) {
+			System.out.println(delIds[i]);
+			if (i == 0) {
+				hql = "id=" + delIds[i];
+			} else {
+				hql = hql + " or id=" + delIds[i];
+			}
+		}
+		Session session = this.getSessionFactory().openSession();
+		Query q = session.createQuery("delete from LetInfo where " + hql);
+		q.executeUpdate();
+		session.close();
 	}
 
 }

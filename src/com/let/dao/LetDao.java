@@ -15,4 +15,6 @@ public interface LetDao {
 
 	public LetInfo findBrokerByID(Integer LetID);
 
+	public void batchDel(String delIdArray);
+
 }

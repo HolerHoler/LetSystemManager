@@ -51,4 +51,10 @@ public class HouseServiceImpl implements HouseService {
 		return house;
 	}
 
+	@Override
+	public void batchDelHouse(String delIdArray) {
+		// TODO 自动生成的方法存根
+		houseDao.batchDel(delIdArray);
+	}
+
 }

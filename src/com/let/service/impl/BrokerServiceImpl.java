@@ -51,4 +51,10 @@ public class BrokerServiceImpl implements BrokerService {
 		return broker;
 	}
 
+	@Override
+	public void batchDelBroker(String delIdArray) {
+		// TODO 自动生成的方法存根
+		brokerDao.batchDel(delIdArray);
+	}
+
 }

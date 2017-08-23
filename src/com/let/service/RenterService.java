@@ -14,4 +14,7 @@ public interface RenterService {
 	public List<Renter> getRenterByAll();
 
 	public Renter getRenterByID(Integer RenterID);
+
+	public void batchDelRenter(String delIdArray);
+
 }

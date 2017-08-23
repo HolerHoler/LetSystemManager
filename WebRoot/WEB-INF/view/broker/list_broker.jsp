@@ -50,7 +50,7 @@
 				<tbody>
 					<s:iterator value="brokerList" var="broker" status="stu">
 						<tr class="text-c">
-							<td><input type="checkbox" value="" name=""></td>
+							<td><input type="checkbox" value="${broker.id}" name="delid"></td>
 							<td><s:property value="#stu.count" /></td>
 							<td><s:property value="#broker.id" /></td>
 							<td><s:property value="#broker.credentials_type" /></td>
@@ -77,11 +77,9 @@
 		"asSorting" : [ [ 2, "asc" ] ],//默认第几个排序
 		"bStateSave" : true,//状态保存
 	});
-
 	function broker_add(title, url, w, h) {
 		layer_show(title, url, w, h);
 	}
-
 	/*经纪人-编辑*/
 	function broker_edit(title, url, id, w, h) {
 		layer_show(title, url, w, h);
@@ -108,14 +106,50 @@
 				icon : 1,
 				time : 1000
 			});
-
 		}, function() {
 			layer.msg('已取消!', {
 				icon : 1,
 				time : 1000
 			});
-
 		});
+	}
+	function datadel() {
+		var flag = false;
+		var delIdArray = new Array();
+		var de = document.getElementsByName("delid");
+		var j = 0;
+		for (var i = 0; i < de.length; i++) {
+			if (de[i].checked) {
+				delIdArray[j] = de[i].value;
+				j++;
+				flag = true;
+			}
+		}
+		if (flag == false) {
+			alert("至少你要选择一个待删除记录");
+			return false;
+		}
+
+		layer.confirm('您是否删除本记录？', {
+			btn : [ '是', '取消' ]
+		//按钮
+		}, function() {
+			$.post("action/batchDelBroker.action?delIdArray=" + delIdArray,
+					function(result) {
+						alert("Data Loaded: " + result.message);
+						location.replace(location.href);
+					});
+			layer.msg('已删除!', {
+				icon : 1,
+				time : 1000
+			});
+		}, function() {
+			layer.msg('已取消!', {
+				icon : 1,
+				time : 1000
+			});
+		});
+
 	}
 </script>
 </html>

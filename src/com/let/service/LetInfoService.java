@@ -14,4 +14,6 @@ public interface LetInfoService {
 	public List<LetInfo> getLetByAll();
 
 	public LetInfo getLetByID(Integer LetID);
+	
+	public void batchDelLet(String delIdArray);
 }

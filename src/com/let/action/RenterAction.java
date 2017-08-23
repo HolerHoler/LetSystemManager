@@ -31,6 +31,7 @@ public class RenterAction {
 	private LetInfo let;
 	private Map<String, Object> result;// 返回结果
 	private String fileName;// 导出文件名
+	private String delIdArray = new String();// 获取批量删除id
 
 	public Integer getRenterID() {
 		return RenterID;
@@ -78,6 +79,14 @@ public class RenterAction {
 
 	public void setResult(Map<String, Object> result) {
 		this.result = result;
+	}
+
+	public String getDelIdArray() {
+		return delIdArray;
+	}
+
+	public void setDelIdArray(String delIdArray) {
+		this.delIdArray = delIdArray;
 	}
 
 	public String add_Renter() {
@@ -137,6 +146,14 @@ public class RenterAction {
 		setFileName(str + "renter");
 		return "export";
 
+	}
+
+	public String batchDel_Renter() {
+		result = new HashMap<String, Object>();
+		result.put("message", "success");
+		System.out.println(delIdArray);
+		renterService.batchDelRenter(delIdArray);
+		return "batchDel";
 	}
 
 }

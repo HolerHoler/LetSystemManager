@@ -18,7 +18,7 @@
 	</a></nav>
 	<div class="page-container">
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
-			<span class="l"> <a href="javascript:;" onclick="datadel()"
+			<span class="l"><a href="javascript:;" onclick="datadel()"
 				class="btn btn-danger radius"> <i class="Hui-iconfont">&#xe6e2;</i>
 					批量删除
 			</a> <a href="javascript:;"
@@ -27,8 +27,7 @@
 					添加租客
 			</a> <a href="action/exportRenter.action" class="btn btn-primary radius">
 					<i class="Hui-iconfont">&#xe600;</i> 导出列表
-			</a>
-			</span>
+			</a> </span>
 		</div>
 		<div class="mt-20">
 			<table
@@ -49,7 +48,7 @@
 				<tbody>
 					<s:iterator value="renterList" var="renter" status="stu">
 						<tr class="text-c">
-							<td><input type="checkbox" value="" name=""></td>
+							<td><input type="checkbox" value="${renter.id}" name="delid"></td>
 							<td><s:property value="#stu.count" /></td>
 							<td><s:property value="#renter.id" /></td>
 							<td><s:property value="#renter.credentials_type" /></td>
@@ -114,6 +113,45 @@
 			});
 
 		});
+	}
+
+	function datadel() {
+		var flag = false;
+		var delIdArray = new Array();
+		var de = document.getElementsByName("delid");
+		var j = 0;
+		for (var i = 0; i < de.length; i++) {
+			if (de[i].checked) {
+				delIdArray[j] = de[i].value;
+				j++;
+				flag = true;
+			}
+		}
+		if (flag == false) {
+			alert("至少你要选择一个待删除记录");
+			return false;
+		}
+
+		layer.confirm('您是否删除本记录？', {
+			btn : [ '是', '取消' ]
+		//按钮
+		}, function() {
+			$.post("action/batchDelRenter.action?delIdArray=" + delIdArray,
+					function(result) {
+						alert("Data Loaded: " + result.message);
+						location.replace(location.href);
+					});
+			layer.msg('已删除!', {
+				icon : 1,
+				time : 1000
+			});
+		}, function() {
+			layer.msg('已取消!', {
+				icon : 1,
+				time : 1000
+			});
+		});
+
 	}
 </script>
 </html>

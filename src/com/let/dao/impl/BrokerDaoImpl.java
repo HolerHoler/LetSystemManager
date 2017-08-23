@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -53,4 +55,20 @@ public class BrokerDaoImpl extends HibernateDaoSupport implements BrokerDao {
 		return broker;
 	}
 
+	public void batchDel(String delIdArray) {
+		String hql = null;
+		String[] delIds = delIdArray.split(",");
+		for (int i = 0; i < delIds.length; i++) {
+			System.out.println(delIds[i]);
+			if (i == 0) {
+				hql = "id=" + delIds[i];
+			} else {
+				hql = hql + " or id=" + delIds[i];
+			}
+		}
+		Session session = this.getSessionFactory().openSession();
+		Query q = session.createQuery("delete from Broker where " + hql);
+		q.executeUpdate();
+		session.close();
+	}
 }

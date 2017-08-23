@@ -32,6 +32,7 @@ public class HouseAction extends ActionSupport {
 	private List houseList;
 	private Map<String, Object> result;// 返回结果
 	private String fileName;
+	private String delIdArray = new String();// 获取批量删除id
 
 	public Integer getHouseID() {
 		return HouseID;
@@ -87,6 +88,14 @@ public class HouseAction extends ActionSupport {
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
+	}
+
+	public String getDelIdArray() {
+		return delIdArray;
+	}
+
+	public void setDelIdArray(String delIdArray) {
+		this.delIdArray = delIdArray;
 	}
 
 	public String add_House() {
@@ -146,6 +155,14 @@ public class HouseAction extends ActionSupport {
 		setFileName(str + "house");
 		return "export";
 
+	}
+
+	public String batchDel_House() {
+		result = new HashMap<String, Object>();
+		result.put("message", "success");
+		System.out.println(delIdArray);
+		houseService.batchDelHouse(delIdArray);
+		return "batchDel";
 	}
 
 }

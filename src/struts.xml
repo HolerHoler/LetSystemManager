@@ -54,10 +54,13 @@
 				<param name="contentDisposition">attachment;filename=${fileName}.xls</param>
 				<param name="bufferSize">10485760</param>
 			</result>
+			<result name="batchDel" type="json">
+				<param name="root">result</param>
+			</result>
 			<!-- 在Action中使用自定义过滤器 -->
 			<interceptor-ref name="loginStack"></interceptor-ref>
 			<allowed-methods>
-				add_Broker,update_Broker,updated_Broker,delete_Broker,list_Broker,jumpAdd_Broker,export_Broker
+				add_Broker,update_Broker,updated_Broker,delete_Broker,list_Broker,jumpAdd_Broker,export_Broker,batchDel_Broker
 			</allowed-methods>
 		</action>
 
@@ -76,10 +79,13 @@
 				<param name="contentDisposition">attachment;filename=${fileName}.xls</param>
 				<param name="bufferSize">10485760</param>
 			</result>
+			<result name="batchDel" type="json">
+				<param name="root">result</param>
+			</result>
 			<!-- 在Action中使用自定义过滤器 -->
 			<interceptor-ref name="loginStack"></interceptor-ref>
 			<allowed-methods>
-				add_Renter,update_Renter,updated_Renter,delete_Renter,list_Renter,jumpAdd_Renter,export_Renter
+				add_Renter,update_Renter,updated_Renter,delete_Renter,list_Renter,jumpAdd_Renter,export_Renter,batchDel_Renter
 			</allowed-methods>
 		</action>
 
@@ -105,11 +111,13 @@
 				<param name="contentDisposition">attachment;filename=${fileName}.xls</param>
 				<param name="bufferSize">10485760</param>
 			</result>
-
+			<result name="batchDel" type="json">
+				<param name="root">result</param>
+			</result>
 			<!-- 在Action中使用自定义过滤器 -->
 			<interceptor-ref name="loginStack"></interceptor-ref>
 			<allowed-methods>
-				add_BrokerHouse,update_BrokerHouse,updated_BrokerHouse,delete_BrokerHouse,list_BrokerHouse,ajax_BrokerHouse,jumpAdd_BrokerHouse,export_BrokerHouse
+				add_BrokerHouse,update_BrokerHouse,updated_BrokerHouse,delete_BrokerHouse,list_BrokerHouse,ajax_BrokerHouse,jumpAdd_BrokerHouse,export_BrokerHouse,batchDel_BrokerHouse
 			</allowed-methods>
 		</action>
 
@@ -128,11 +136,13 @@
 				<param name="contentDisposition">attachment;filename=${fileName}.xls</param>
 				<param name="bufferSize">10485760</param>
 			</result>
-
+			<result name="batchDel" type="json">
+				<param name="root">result</param>
+			</result>
 			<!-- 在Action中使用自定义过滤器 -->
 			<interceptor-ref name="loginStack"></interceptor-ref>
 			<allowed-methods>
-				add_House,update_House,updated_House,delete_House,list_House,jumpAdd_House,export_House
+				add_House,update_House,updated_House,delete_House,list_House,jumpAdd_House,export_House,batchDel_House
 			</allowed-methods>
 		</action>
 
@@ -163,10 +173,13 @@
 				<param name="contentDisposition">attachment;filename=${fileName}.xls</param>
 				<param name="bufferSize">10485760</param>
 			</result>
+			<result name="batchDel" type="json">
+				<param name="root">result</param>
+			</result>
 			<!-- 在Action中使用自定义过滤器 -->
 			<interceptor-ref name="loginStack"></interceptor-ref>
 			<allowed-methods>
-				add_Let,update_Let,updated_Let,delete_Let,list_Let,bh_Let,ajaxHouse_Let,ajaxRenter_Let,ajaxBroker_Let,jumpAdd_Let,export_Let
+				add_Let,update_Let,updated_Let,delete_Let,list_Let,bh_Let,ajaxHouse_Let,ajaxRenter_Let,ajaxBroker_Let,jumpAdd_Let,export_Let,batchDel_Let
 			</allowed-methods>
 		</action>
 

@@ -13,8 +13,10 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.struts2.ServletActionContext;
 
 import com.let.function.BrokerExportService;
 import com.let.function.ExcelServiceImpl;
@@ -34,6 +36,7 @@ public class BrokerAction extends ActionSupport {
 	private BrokerHouse brokerHouse;
 	private Map<String, Object> result;// 返回结果
 	private String fileName;// 导出文件名
+	private String delIdArray = new String();// 获取批量删除id
 
 	public Integer getBrokerID() {
 		return BrokerID;
@@ -89,6 +92,14 @@ public class BrokerAction extends ActionSupport {
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
+	}
+
+	public String getDelIdArray() {
+		return delIdArray;
+	}
+
+	public void setDelIdArray(String delIdArray) {
+		this.delIdArray = delIdArray;
 	}
 
 	public String add_Broker() {
@@ -151,6 +162,13 @@ public class BrokerAction extends ActionSupport {
 		System.out.print(str);
 		setFileName(str + "broker");
 		return "export";
+	}
 
+	public String batchDel_Broker() {
+		result = new HashMap<String, Object>();
+		result.put("message", "success");
+		System.out.println(delIdArray);
+		brokerService.batchDelBroker(delIdArray);
+		return "batchDel";
 	}
 }

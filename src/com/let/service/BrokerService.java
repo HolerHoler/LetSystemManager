@@ -15,4 +15,6 @@ public interface BrokerService {
 
 	public Broker getBrokerByID(Integer BrokerID);
 
+	public void batchDelBroker(String delIdArray);
+
 }

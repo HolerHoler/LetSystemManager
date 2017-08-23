@@ -14,5 +14,7 @@ public interface HouseDao {
 	public List findHouseByAll();
 
 	public HouseInfo findHouseByID(Integer HouseID);
+	
+	public void batchDel(String delIdArray);
 
 }

@@ -14,4 +14,6 @@ public interface HouseService {
 	public List<HouseInfo> getHouseByAll();
 
 	public HouseInfo getHouseByID(Integer HouseID);
+	
+	public void batchDelHouse(String delIdArray);
 }

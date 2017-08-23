@@ -34,7 +34,8 @@
 				<thead>
 
 					<tr class="text-c">
-						<th width="25px"><input type="checkbox" name="" value=""></th>
+						<th width="25px"><input type="checkbox" name="delid"
+							value="${house.id}"></th>
 						<th width="50px">序号</th>
 						<th width="50px">房子id</th>
 						<th width="150px">房子名字</th>
@@ -48,7 +49,7 @@
 
 					<s:iterator value="houseList" var="house" status="stu">
 						<tr class="text-c">
-							<td><input type="checkbox" value="1" name=""></td>
+							<td><input type="checkbox" value="${house.id}" name="delid"></td>
 							<td><s:property value="#stu.count" /></td>
 							<td><s:property value="#house.id" /></td>
 							<td><s:a href="updateHouse.action?HouseID=%{#house.id}"
@@ -117,6 +118,44 @@
 			});
 
 		});
+	}
+	function datadel() {
+		var flag = false;
+		var delIdArray = new Array();
+		var de = document.getElementsByName("delid");
+		var j = 0;
+		for (var i = 0; i < de.length; i++) {
+			if (de[i].checked) {
+				delIdArray[j] = de[i].value;
+				j++;
+				flag = true;
+			}
+		}
+		if (flag == false) {
+			alert("至少你要选择一个待删除记录");
+			return false;
+		}
+
+		layer.confirm('您是否删除本记录？', {
+			btn : [ '是', '取消' ]
+		//按钮
+		}, function() {
+			$.post("action/batchDelHouse.action?delIdArray=" + delIdArray,
+					function(result) {
+						alert("Data Loaded: " + result.message);
+						location.replace(location.href);
+					});
+			layer.msg('已删除!', {
+				icon : 1,
+				time : 1000
+			});
+		}, function() {
+			layer.msg('已取消!', {
+				icon : 1,
+				time : 1000
+			});
+		});
+
 	}
 </script>
 </html>

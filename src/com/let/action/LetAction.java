@@ -54,6 +54,7 @@ public class LetAction extends ActionSupport {
 	private List<BrokerHouse> brokerHouseListByHouseID;
 	private Map<String, Object> result;// 返回结果
 	private String fileName;
+	private String delIdArray = new String();// 获取批量删除id
 
 	private List<LetInfo> letList;
 
@@ -160,6 +161,14 @@ public class LetAction extends ActionSupport {
 
 	public void setResult(Map<String, Object> result) {
 		this.result = result;
+	}
+
+	public String getDelIdArray() {
+		return delIdArray;
+	}
+
+	public void setDelIdArray(String delIdArray) {
+		this.delIdArray = delIdArray;
 	}
 
 	public String getFileName() {
@@ -275,7 +284,14 @@ public class LetAction extends ActionSupport {
 		System.out.print(str);
 		setFileName(str + "let");
 		return "export";
+	}
 
+	public String batchDel_Let() {
+		result = new HashMap<String, Object>();
+		result.put("message", "success");
+		System.out.println(delIdArray);
+		letInfoService.batchDelLet(delIdArray);
+		return "batchDel";
 	}
 
 }

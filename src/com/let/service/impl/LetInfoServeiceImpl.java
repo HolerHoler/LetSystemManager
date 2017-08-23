@@ -51,4 +51,10 @@ public class LetInfoServeiceImpl implements LetInfoService {
 		return letInfo;
 	}
 
+	@Override
+	public void batchDelLet(String delIdArray) {
+		// TODO 自动生成的方法存根
+		letDao.batchDel(delIdArray);
+	}
+
 }

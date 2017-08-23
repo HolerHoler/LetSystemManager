@@ -18,4 +18,8 @@ public interface BrokerHouseService {
 	public List<BrokerHouse> getBrokerHouseByHouseID(Integer HouseID);
 
 	public List<BrokerHouse> getBrokerHouseByBrokerID(Integer BrokerID);
+	
+	public void batchDelBrokerHouse(String delIdArray);
+	
+	
 }

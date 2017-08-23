@@ -14,4 +14,6 @@ public interface BrokerDao {
 	public List findBrokerByAll();
 
 	public Broker findBrokerByID(Integer BrokerID);
+
+	public void batchDel(String delIdArray);
 }

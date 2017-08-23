@@ -67,4 +67,11 @@ public class BrokerHouseServiceImpl implements BrokerHouseService {
 				.findBrokerHouseByBrokerID(BrokerID);
 		return brokerHouseListByBrokerID;
 	}
+
+	@Override
+	public void batchDelBrokerHouse(String delIdArray) {
+		// TODO 自动生成的方法存根
+		brokerHouseDao.batchDel(delIdArray);
+	}
+
 }

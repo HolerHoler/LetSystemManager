@@ -35,6 +35,7 @@ public class BrokerHouseAction extends ActionSupport {
 	@Resource(name = "houseService")
 	private HouseService houseService;
 	private Map<String, Object> result;// 返回结果
+	private String delIdArray = new String();// 获取批量删除id
 
 	private Integer BrokerHouseID;
 	private Broker broker;
@@ -89,6 +90,14 @@ public class BrokerHouseAction extends ActionSupport {
 
 	public void setResult(Map<String, Object> result) {
 		this.result = result;
+	}
+
+	public String getDelIdArray() {
+		return delIdArray;
+	}
+
+	public void setDelIdArray(String delIdArray) {
+		this.delIdArray = delIdArray;
 	}
 
 	public String getFileName() {
@@ -178,6 +187,14 @@ public class BrokerHouseAction extends ActionSupport {
 		setFileName(str + "brokerHouse");
 		return "export";
 
+	}
+
+	public String batchDel_BrokerHouse() {
+		result = new HashMap<String, Object>();
+		result.put("message", "success");
+		System.out.println(delIdArray);
+		brokerHouseService.batchDelBrokerHouse(delIdArray);
+		return "batchDel";
 	}
 
 }
