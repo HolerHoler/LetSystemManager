@@ -17,6 +17,8 @@
 						<ul class="dropDown-menu menu radius box-shadow">
 							<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
 							<li><a href="javascript:;"
+								onClick="changePassword_Admin('修改密码','jumpAddAdmin.action?username=<s:property value="user.username" />','500','300')">修改密码</a></li>
+							<li><a href="javascript:;"
 								onClick="exitLogin('exitLogin.action')">切换账户</a></li>
 							<li><a href="javascript:;"
 								onClick="exitLogin('exitLogin.action')">退出</a></li>
@@ -26,22 +28,15 @@
 							style="font-size:18px">&#xe68a;</i>
 					</a></li>
 					<li id="Hui-skin" class="dropDown right dropDown_hover"><a
-						href="javascript:;" class="dropDown_A" title="换肤"> <i
-							class="Hui-iconfont" style="font-size:18px">&#xe62a;</i>
-					</a>
+						href="javascript:;" class="dropDown_A" title="换肤"><i
+							class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
 						<ul class="dropDown-menu menu radius box-shadow">
-							<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a>
-							</li>
-							<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a>
-							</li>
-							<li><a href="javascript:;" data-val="green" title="绿色">绿色</a>
-							</li>
-							<li><a href="javascript:;" data-val="red" title="红色">红色</a>
-							</li>
-							<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a>
-							</li>
-							<li><a href="javascript:;" data-val="orange" title="橙色">橙色</a>
-							</li>
+							<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
+							<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
+							<li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
+							<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
+							<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
+							<li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
 						</ul></li>
 				</ul>
 			</nav>
@@ -77,6 +72,23 @@
 			});
 
 		});
+	}
+
+	/*个人信息*/
+	function myselfinfo() {
+		layer.open({
+			type : 1,
+			area : [ '300px', '200px' ],
+			fix : false, //不固定
+			maxmin : true,
+			shade : 0.4,
+			title : '查看信息',
+			content : '<div>用户名:<s:property value="user.username" /></div>'
+		});
+	}
+
+	function changePassword_Admin(title, url, w, h) {
+		layer_show(title, url, w, h);
 	}
 </script>
 

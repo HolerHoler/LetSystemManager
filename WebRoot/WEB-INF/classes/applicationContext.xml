@@ -54,6 +54,7 @@
 	<bean id="LetAction" class="com.let.action.LetAction" scope="prototype" />
 	<bean id="BrokerHouseAction" class="com.let.action.BrokerHouseAction"
 		scope="prototype" />
+	<bean id="AdminAction" class="com.let.action.AdminAction" scope="prototype" />
 
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager" />

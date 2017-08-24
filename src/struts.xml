@@ -204,9 +204,16 @@
 			<allowed-methods>tryLogin,exitLogin,ajaxLogin,exportLogin</allowed-methods>
 		</action>
 
-
-
-
+		<action name="*Admin" class="AdminAction" method="{1}_Admin">
+			<result name="jumpAdd">/WEB-INF/view/admin/changePassword_Admin.jsp
+			</result>
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+			<!-- 在Action中使用自定义过滤器 -->
+			<interceptor-ref name="loginStack"></interceptor-ref>
+			<allowed-methods>jumpAdd_Admin,changePassword_Admin</allowed-methods>
+		</action>
 
 	</package>
 </struts>

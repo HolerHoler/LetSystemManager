@@ -62,5 +62,15 @@
 	</div>
 
 </body>
-
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/static/3rd_lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
+<script type="text/javascript">
+	$("body").Huitab({
+		tabBar : ".navbar-wrapper .navbar-levelone",
+		tabCon : ".Hui-aside .menu_dropdown",
+		className : "current",
+		index : 0,
+	});
+	
+</script>
 </html>

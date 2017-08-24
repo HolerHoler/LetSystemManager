@@ -16,6 +16,7 @@ import com.let.po.Broker;
 import com.let.po.HouseInfo;
 import com.let.po.Renter;
 import com.let.po.User;
+import com.let.service.AdminService;
 import com.let.service.BrokerHouseService;
 import com.let.service.BrokerService;
 import com.let.service.HouseService;
@@ -38,6 +39,8 @@ public class Test {
 	private BrokerHouseService brokerHouseService;
 	@Resource(name = "brokerHouseDao")
 	private BrokerHouseDao brokerHouseDao;
+	@Resource(name = "adminService")
+	private AdminService adminService;
 
 	public void addData() {
 
@@ -79,10 +82,9 @@ public class Test {
 
 	@org.junit.Test
 	public void createRelation() {
-		System.out.println(brokerHouseDao);
-		ApplicationContext ctx = new ClassPathXmlApplicationContext(
-				"applicationContext.xml");
-		System.out.println(ctx.getBean("BrokerHouseAction"));
+		User user = adminService.findUserByUsername("123");
+		user.setPassword("123");
+		adminService.changePassword(user);
 
 	}
 }
