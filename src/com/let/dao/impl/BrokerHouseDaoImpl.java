@@ -51,7 +51,7 @@ public class BrokerHouseDaoImpl extends HibernateDaoSupport implements
 	}
 
 	@Override
-	public BrokerHouse findBrokerHouseByID(Integer BrokerHouseID) {
+	public BrokerHouse findBrokerHouseByID(Long BrokerHouseID) {
 		// TODO 自动生成的方法存根
 		BrokerHouse bokerHouse = getHibernateTemplate().get(BrokerHouse.class,
 				BrokerHouseID);
@@ -59,7 +59,7 @@ public class BrokerHouseDaoImpl extends HibernateDaoSupport implements
 	}
 
 	@Override
-	public List<BrokerHouse> findBrokerHouseByHouseID(Integer HouseID) {
+	public List<BrokerHouse> findBrokerHouseByHouseID(Long HouseID) {
 		// TODO 自动生成的方法存根
 		String hql = "from BrokerHouse where house.id='" + HouseID + "'";
 		List<BrokerHouse> brokerHouseListByHouseID = (List<BrokerHouse>) getHibernateTemplate()
@@ -68,7 +68,7 @@ public class BrokerHouseDaoImpl extends HibernateDaoSupport implements
 	}
 
 	@Override
-	public List<BrokerHouse> findBrokerHouseByBrokerID(Integer BrokerID) {
+	public List<BrokerHouse> findBrokerHouseByBrokerID(Long BrokerID) {
 		// TODO 自动生成的方法存根
 		String hql = "from BrokerHouse where broker.id='" + BrokerID + "'";
 		List<BrokerHouse> brokerHouseListByBrokerID = (List<BrokerHouse>) getHibernateTemplate()

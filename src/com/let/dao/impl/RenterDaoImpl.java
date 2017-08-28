@@ -49,7 +49,7 @@ public class RenterDaoImpl extends HibernateDaoSupport implements RenterDao {
 	}
 
 	@Override
-	public Renter findRenterByID(Integer RenterID) {
+	public Renter findRenterByID(Long RenterID) {
 		// TODO 自动生成的方法存根
 		Renter renter = getHibernateTemplate().get(Renter.class, RenterID);
 		return renter;

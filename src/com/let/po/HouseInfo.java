@@ -3,7 +3,7 @@ package com.let.po;
 import java.util.Set;
 
 public class HouseInfo {
-	private Integer id;
+	private Long id;
 	private String houseName;// 房子名字
 	private String type;// 房子类型
 	private String design;// 房子设计
@@ -25,11 +25,11 @@ public class HouseInfo {
 		super();
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

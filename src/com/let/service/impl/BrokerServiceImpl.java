@@ -31,7 +31,7 @@ public class BrokerServiceImpl implements BrokerService {
 	}
 
 	@Override
-	public void deleteBroker(Integer BrokerID) {
+	public void deleteBroker(Long BrokerID) {
 		// TODO 自动生成的方法存根
 		Broker broker = brokerDao.findBrokerByID(BrokerID);
 		brokerDao.deleteBrokerToDB(broker);
@@ -45,7 +45,7 @@ public class BrokerServiceImpl implements BrokerService {
 	}
 
 	@Override
-	public Broker getBrokerByID(Integer BrokerID) {
+	public Broker getBrokerByID(Long BrokerID) {
 		// TODO 自动生成的方法存根
 		Broker broker = brokerDao.findBrokerByID(BrokerID);
 		return broker;

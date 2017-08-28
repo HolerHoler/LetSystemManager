@@ -25,7 +25,7 @@ import com.let.service.RenterService;
 public class RenterAction {
 	@Resource(name = "renterService")
 	private RenterService renterService;
-	private Integer RenterID;
+	private Long RenterID;
 	private Renter renter;
 	private List renterList;
 	private LetInfo let;
@@ -33,11 +33,11 @@ public class RenterAction {
 	private String fileName;// 导出文件名
 	private String delIdArray = new String();// 获取批量删除id
 
-	public Integer getRenterID() {
+	public Long getRenterID() {
 		return RenterID;
 	}
 
-	public void setRenterID(Integer renterID) {
+	public void setRenterID(Long renterID) {
 		RenterID = renterID;
 	}
 

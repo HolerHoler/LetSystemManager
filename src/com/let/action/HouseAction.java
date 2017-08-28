@@ -25,36 +25,36 @@ import com.opensymphony.xwork2.ActionSupport;
 public class HouseAction extends ActionSupport {
 	@Resource(name = "houseService")
 	private HouseService houseService;
-	private Integer HouseID;
-	private Integer LetID;
-	private Integer BrokerID;
+	private Long HouseID;
+	private Long LetID;
+	private Long BrokerID;
 	private HouseInfo house;
 	private List houseList;
 	private Map<String, Object> result;// 返回结果
 	private String fileName;
 	private String delIdArray = new String();// 获取批量删除id
 
-	public Integer getHouseID() {
+	public Long getHouseID() {
 		return HouseID;
 	}
 
-	public void setHouseID(Integer houseID) {
+	public void setHouseID(Long houseID) {
 		HouseID = houseID;
 	}
 
-	public Integer getLetID() {
+	public Long getLetID() {
 		return LetID;
 	}
 
-	public void setLetID(Integer letID) {
+	public void setLetID(Long letID) {
 		LetID = letID;
 	}
 
-	public Integer getBrokerID() {
+	public Long getBrokerID() {
 		return BrokerID;
 	}
 
-	public void setBrokerID(Integer brokerID) {
+	public void setBrokerID(Long brokerID) {
 		BrokerID = brokerID;
 	}
 

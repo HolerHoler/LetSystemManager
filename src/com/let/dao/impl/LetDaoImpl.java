@@ -49,7 +49,7 @@ public class LetDaoImpl extends HibernateDaoSupport implements LetDao {
 	}
 
 	@Override
-	public LetInfo findBrokerByID(Integer LetID) {
+	public LetInfo findBrokerByID(Long LetID) {
 		// TODO 自动生成的方法存根
 		LetInfo letInfo = getHibernateTemplate().get(LetInfo.class, LetID);
 		return letInfo;

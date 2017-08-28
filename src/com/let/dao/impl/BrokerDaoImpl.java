@@ -49,7 +49,7 @@ public class BrokerDaoImpl extends HibernateDaoSupport implements BrokerDao {
 	}
 
 	@Override
-	public Broker findBrokerByID(Integer BrokerID) {
+	public Broker findBrokerByID(Long BrokerID) {
 		// TODO 自动生成的方法存根
 		Broker broker = getHibernateTemplate().get(Broker.class, BrokerID);
 		return broker;

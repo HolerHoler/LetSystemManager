@@ -29,8 +29,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class BrokerAction extends ActionSupport {
 	@Resource(name = "brokerService")
 	private BrokerService brokerService;
-	private Integer BrokerID;// 经纪人id
-	private Integer HouseID;// 房子id
+	private Long BrokerID;// 经纪人id
+	private Long HouseID;// 房子id
 	private Broker broker;// 经纪人对象
 	private List<Broker> brokerList;// 经纪人列表
 	private BrokerHouse brokerHouse;
@@ -38,19 +38,19 @@ public class BrokerAction extends ActionSupport {
 	private String fileName;// 导出文件名
 	private String delIdArray = new String();// 获取批量删除id
 
-	public Integer getBrokerID() {
+	public Long getBrokerID() {
 		return BrokerID;
 	}
 
-	public void setBrokerID(Integer brokerID) {
+	public void setBrokerID(Long brokerID) {
 		BrokerID = brokerID;
 	}
 
-	public Integer getHouseID() {
+	public Long getHouseID() {
 		return HouseID;
 	}
 
-	public void setHouseID(Integer houseID) {
+	public void setHouseID(Long houseID) {
 		HouseID = houseID;
 	}
 

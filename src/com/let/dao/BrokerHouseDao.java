@@ -14,11 +14,11 @@ public interface BrokerHouseDao {
 
 	public List<BrokerHouse> findBrokerHouseByAll();
 
-	public BrokerHouse findBrokerHouseByID(Integer HouseHouseID);
+	public BrokerHouse findBrokerHouseByID(Long HouseHouseID);
 
-	public List<BrokerHouse> findBrokerHouseByHouseID(Integer HouseID);
+	public List<BrokerHouse> findBrokerHouseByHouseID(Long HouseID);
 
-	public List<BrokerHouse> findBrokerHouseByBrokerID(Integer BrokerID);
+	public List<BrokerHouse> findBrokerHouseByBrokerID(Long BrokerID);
 	
 	public void batchDel(String delIdArray);
 }

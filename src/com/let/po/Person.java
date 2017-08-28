@@ -1,7 +1,7 @@
 package com.let.po;
 
 public class Person {
-	private Integer id;
+	private Long id;
 	private String credentials_type;
 	private String credentials_id;
 	private String personName;
@@ -11,11 +11,11 @@ public class Person {
 		super();
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

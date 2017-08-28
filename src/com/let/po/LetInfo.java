@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.Set;
 
 public class LetInfo {
-	private Integer id;
+	private Long id;
 	private String letName;
 	private HouseInfo houseInfo;//
 	private Renter renter;// 租客1:租房信息n
@@ -13,11 +13,11 @@ public class LetInfo {
 	private int dayNum;// 租赁时间长度
 	private Date endTime;// 租赁结束时间
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

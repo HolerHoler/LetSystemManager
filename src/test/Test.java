@@ -42,13 +42,13 @@ public class Test {
 	@Resource(name = "adminService")
 	private AdminService adminService;
 
+	@org.junit.Test
 	public void addData() {
-
 		for (int i = 0; i < 10; i++) {
 			Broker broker = new Broker();
 			broker.setCredentials_type("身份证");
 			broker.setCredentials_id("12346" + i);
-			broker.setPersonName("pzh" + i);
+			broker.setPersonName("Holer" + i);
 			broker.setTelephone("0222212" + i);
 			broker.setWork_address("光华走" + i);
 			brokerService.addBroker(broker);
@@ -56,7 +56,7 @@ public class Test {
 			Renter renter = new Renter();
 			renter.setCredentials_type("身份证");
 			renter.setCredentials_id("12346" + i);
-			renter.setPersonName("pzh" + i);
+			renter.setPersonName("Holer" + i);
 			renter.setTelephone("0222212" + i);
 			renterService.addRenter(renter);
 

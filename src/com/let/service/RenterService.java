@@ -9,11 +9,11 @@ public interface RenterService {
 
 	public void updateRenter(Renter renter);
 
-	public void deleteRenter(Integer RenterID);
+	public void deleteRenter(Long RenterID);
 
 	public List<Renter> getRenterByAll();
 
-	public Renter getRenterByID(Integer RenterID);
+	public Renter getRenterByID(Long RenterID);
 
 	public void batchDelRenter(String delIdArray);
 

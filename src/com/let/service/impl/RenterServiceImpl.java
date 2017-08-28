@@ -30,7 +30,7 @@ public class RenterServiceImpl implements RenterService {
 	}
 
 	@Override
-	public void deleteRenter(Integer RenterID) {
+	public void deleteRenter(Long RenterID) {
 		// TODO 自动生成的方法存根
 		Renter renter = renterDao.findRenterByID(RenterID);
 		renterDao.deleteRenterToDB(renter);
@@ -44,7 +44,7 @@ public class RenterServiceImpl implements RenterService {
 	}
 
 	@Override
-	public Renter getRenterByID(Integer RenterID) {
+	public Renter getRenterByID(Long RenterID) {
 		// TODO 自动生成的方法存根
 		Renter renter = renterDao.findRenterByID(RenterID);
 		return renter;

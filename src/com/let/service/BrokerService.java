@@ -9,11 +9,11 @@ public interface BrokerService {
 
 	public void updateBroker(Broker broker);
 
-	public void deleteBroker(Integer BrokerID);
+	public void deleteBroker(Long BrokerID);
 
 	public List<Broker> getBrokerByAll();
 
-	public Broker getBrokerByID(Integer BrokerID);
+	public Broker getBrokerByID(Long BrokerID);
 
 	public void batchDelBroker(String delIdArray);
 

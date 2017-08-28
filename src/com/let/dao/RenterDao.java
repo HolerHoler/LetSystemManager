@@ -13,7 +13,7 @@ public interface RenterDao {
 
 	public List findRenterByAll();
 
-	public Renter findRenterByID(Integer RenterID);
+	public Renter findRenterByID(Long RenterID);
 
 	public void batchDel(String delIdArray);
 }

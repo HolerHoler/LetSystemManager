@@ -49,7 +49,7 @@ public class HouseDaoImpl extends HibernateDaoSupport implements HouseDao {
 	}
 
 	@Override
-	public HouseInfo findHouseByID(Integer HouseID) {
+	public HouseInfo findHouseByID(Long HouseID) {
 		// TODO 自动生成的方法存根
 		HouseInfo houseInfo = getHibernateTemplate().get(HouseInfo.class,
 				HouseID);

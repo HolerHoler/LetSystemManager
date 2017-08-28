@@ -40,10 +40,10 @@ public class LetAction extends ActionSupport {
 	private RenterService renterService;
 	@Resource(name = "houseService")
 	private HouseService houseService;
-	private Integer LetID;
-	private Integer BrokerID;
-	private Integer RenterID;
-	private Integer HosueID;
+	private Long LetID;
+	private Long BrokerID;
+	private Long RenterID;
+	private Long HosueID;
 
 	private LetInfo letInfo;
 	private Broker broker;
@@ -58,35 +58,35 @@ public class LetAction extends ActionSupport {
 
 	private List<LetInfo> letList;
 
-	public Integer getLetID() {
+	public Long getLetID() {
 		return LetID;
 	}
 
-	public void setLetID(Integer letID) {
+	public void setLetID(Long letID) {
 		LetID = letID;
 	}
 
-	public Integer getBrokerID() {
+	public Long getBrokerID() {
 		return BrokerID;
 	}
 
-	public void setBrokerID(Integer brokerID) {
+	public void setBrokerID(Long brokerID) {
 		BrokerID = brokerID;
 	}
 
-	public Integer getRenterID() {
+	public Long getRenterID() {
 		return RenterID;
 	}
 
-	public void setRenterID(Integer renterID) {
+	public void setRenterID(Long renterID) {
 		RenterID = renterID;
 	}
 
-	public Integer getHosueID() {
+	public Long getHosueID() {
 		return HosueID;
 	}
 
-	public void setHosueID(Integer hosueID) {
+	public void setHosueID(Long hosueID) {
 		HosueID = hosueID;
 	}
 

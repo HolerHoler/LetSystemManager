@@ -13,7 +13,7 @@ public interface HouseDao {
 
 	public List findHouseByAll();
 
-	public HouseInfo findHouseByID(Integer HouseID);
+	public HouseInfo findHouseByID(Long HouseID);
 	
 	public void batchDel(String delIdArray);
 

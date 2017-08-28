@@ -13,7 +13,7 @@ public interface LetDao {
 
 	public List findLetByAll();
 
-	public LetInfo findBrokerByID(Integer LetID);
+	public LetInfo findBrokerByID(Long LetID);
 
 	public void batchDel(String delIdArray);
 

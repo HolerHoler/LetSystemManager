@@ -31,7 +31,7 @@ public class HouseServiceImpl implements HouseService {
 	}
 
 	@Override
-	public void deleteHouse(Integer HouseID) {
+	public void deleteHouse(Long HouseID) {
 		// TODO 自动生成的方法存根
 		HouseInfo house = houseDao.findHouseByID(HouseID);
 		houseDao.deleteHouseToDB(house);
@@ -45,7 +45,7 @@ public class HouseServiceImpl implements HouseService {
 	}
 
 	@Override
-	public HouseInfo getHouseByID(Integer HouseID) {
+	public HouseInfo getHouseByID(Long HouseID) {
 		// TODO 自动生成的方法存根
 		HouseInfo house = houseDao.findHouseByID(HouseID);
 		return house;

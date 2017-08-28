@@ -37,18 +37,18 @@ public class BrokerHouseAction extends ActionSupport {
 	private Map<String, Object> result;// 返回结果
 	private String delIdArray = new String();// 获取批量删除id
 
-	private Integer BrokerHouseID;
+	private Long BrokerHouseID;
 	private Broker broker;
 	private HouseInfo house;
 	private BrokerHouse brokerHouse;
 	private List<BrokerHouse> brokerHouseList;
 	private String fileName;
 
-	public Integer getBrokerHouseID() {
+	public Long getBrokerHouseID() {
 		return BrokerHouseID;
 	}
 
-	public void setBrokerHouseID(Integer brokerHouseID) {
+	public void setBrokerHouseID(Long brokerHouseID) {
 		BrokerHouseID = brokerHouseID;
 	}
 

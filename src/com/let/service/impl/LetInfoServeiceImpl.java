@@ -31,7 +31,7 @@ public class LetInfoServeiceImpl implements LetInfoService {
 	}
 
 	@Override
-	public void deleteLet(Integer LetID) {
+	public void deleteLet(Long LetID) {
 		// TODO 自动生成的方法存根
 		LetInfo letInfo = letDao.findBrokerByID(LetID);
 		letDao.deleteLetToDB(letInfo);
@@ -45,7 +45,7 @@ public class LetInfoServeiceImpl implements LetInfoService {
 	}
 
 	@Override
-	public LetInfo getLetByID(Integer LetID) {
+	public LetInfo getLetByID(Long LetID) {
 		// TODO 自动生成的方法存根
 		LetInfo letInfo = letDao.findBrokerByID(LetID);
 		return letInfo;

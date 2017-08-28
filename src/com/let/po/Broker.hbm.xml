@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="com.let.po.Broker" table="Broker">
-		<id name="id" column="id" type="integer">
+		<id name="id" column="id" type="long">
 			<generator class="native"></generator>
 		</id>
 

@@ -9,11 +9,11 @@ public interface HouseService {
 
 	public void updateHouse(HouseInfo house);
 
-	public void deleteHouse(Integer HouseID);
+	public void deleteHouse(Long HouseID);
 
 	public List<HouseInfo> getHouseByAll();
 
-	public HouseInfo getHouseByID(Integer HouseID);
-	
+	public HouseInfo getHouseByID(Long HouseID);
+
 	public void batchDelHouse(String delIdArray);
 }

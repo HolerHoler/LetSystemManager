@@ -30,7 +30,7 @@ public class BrokerHouseServiceImpl implements BrokerHouseService {
 	}
 
 	@Override
-	public void deleteBrokerHouse(Integer BrokerHouseID) {
+	public void deleteBrokerHouse(Long BrokerHouseID) {
 		// TODO 自动生成的方法存根
 		BrokerHouse brokerHouse = brokerHouseDao
 				.findBrokerHouseByID(BrokerHouseID);
@@ -45,7 +45,7 @@ public class BrokerHouseServiceImpl implements BrokerHouseService {
 	}
 
 	@Override
-	public BrokerHouse getBrokerHouseByID(Integer BrokerHouseID) {
+	public BrokerHouse getBrokerHouseByID(Long BrokerHouseID) {
 		// TODO 自动生成的方法存根
 		BrokerHouse brokerHouse = brokerHouseDao
 				.findBrokerHouseByID(BrokerHouseID);
@@ -53,7 +53,7 @@ public class BrokerHouseServiceImpl implements BrokerHouseService {
 	}
 
 	@Override
-	public List<BrokerHouse> getBrokerHouseByHouseID(Integer HouseID) {
+	public List<BrokerHouse> getBrokerHouseByHouseID(Long HouseID) {
 		// TODO 自动生成的方法存根
 		List brokerHouseListByHouseID = brokerHouseDao
 				.findBrokerHouseByHouseID(HouseID);
@@ -61,7 +61,7 @@ public class BrokerHouseServiceImpl implements BrokerHouseService {
 	}
 
 	@Override
-	public List<BrokerHouse> getBrokerHouseByBrokerID(Integer BrokerID) {
+	public List<BrokerHouse> getBrokerHouseByBrokerID(Long BrokerID) {
 		// TODO 自动生成的方法存根
 		List brokerHouseListByBrokerID = brokerHouseDao
 				.findBrokerHouseByBrokerID(BrokerID);

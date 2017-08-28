@@ -9,15 +9,15 @@ public interface BrokerHouseService {
 
 	public void updateBrokerHouse(BrokerHouse brokerHouse);
 
-	public void deleteBrokerHouse(Integer BrokerHouseID);
+	public void deleteBrokerHouse(Long BrokerHouseID);
 
 	public List<BrokerHouse> getBrokerHouseByAll();
 
-	public BrokerHouse getBrokerHouseByID(Integer BrokerHouseID);
+	public BrokerHouse getBrokerHouseByID(Long BrokerHouseID);
 
-	public List<BrokerHouse> getBrokerHouseByHouseID(Integer HouseID);
+	public List<BrokerHouse> getBrokerHouseByHouseID(Long HouseID);
 
-	public List<BrokerHouse> getBrokerHouseByBrokerID(Integer BrokerID);
+	public List<BrokerHouse> getBrokerHouseByBrokerID(Long BrokerID);
 	
 	public void batchDelBrokerHouse(String delIdArray);
 	
